@@ -1,19 +1,19 @@
 package com.example.demo.pojo;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Devices")
 public class Devices {
-	@Id
-	String _id;
-	String id;
+
+	String deviceId;
 	String name;
-	public String getId() {
-		return id;
+	String host;
+	
+	public String getDeviceId() {
+		return deviceId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
 	}
 	public String getName() {
 		return name;
@@ -21,11 +21,13 @@ public class Devices {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String get_id() {
-		return _id;
+	public String getHost() {
+		return host;
 	}
-	public void set_id(String _id) {
-		this._id = _id;
+	public void setHost(String host) {
+		this.host = host;
 	}
-	
+	public String toString() {
+		return deviceId + "::" + name + "::" + host;
+	}
 }

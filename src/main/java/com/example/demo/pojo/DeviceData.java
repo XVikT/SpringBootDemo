@@ -1,17 +1,23 @@
 package com.example.demo.pojo;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="DeviceData")
 public class DeviceData {
+	
+	public static final String DEVICE_ID="deviceId";
+	public static final String VALUE="value";
+	public static final String TIMESTAMP="timeStamp";
+	
 	String deviceId;
 	String value;
 	Long timeStamp;
-	String host;
 	
 	public DeviceData() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public DeviceData(String host, String deviceId, String value, Long timeStamp) {
-		this.host = host;
+	public DeviceData(String deviceId, String value, Long timeStamp) {
 		this.deviceId = deviceId;
 		this.value = value;
 		this.timeStamp = timeStamp;
@@ -35,10 +41,8 @@ public class DeviceData {
 	public void setTimeStamp(Long timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-	public String getHost() {
-		return host;
-	}
-	public void setHost(String host) {
-		this.host = host;
+	
+	public String toString() {
+		return this.deviceId + "::" + this.value + "::" + this.timeStamp;
 	}
 }
